@@ -1,3 +1,4 @@
+--LAB 1
 --a
 DESCRIBE EMPLOYEES;
 
