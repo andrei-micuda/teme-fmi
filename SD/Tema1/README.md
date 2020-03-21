@@ -1,6 +1,7 @@
 # Tema 1
 - Proiectul este alcatuit din [codul sursa](Sortari.cpp) si un [fisier text](sortari.txt) care contine timpul de executie al tuturor sortarilor pe input-uri de diverse marimi.
-- Daca se doreste testarea sortarilor pe un alt input, se va crea un fisier de intrare  `sortari.in` de forma:  
+- Daca se doreste testarea sortarilor pe un alt input, se va crea un fisier de intrare  `sortari.in` de forma:
+
 ```
 nr_teste
 size_test(1)
