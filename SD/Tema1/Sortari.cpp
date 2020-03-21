@@ -24,7 +24,8 @@ void InsertionSort(vector<long long>& v);
 void BubbleSort(vector<long long>& v);
 void RadixSortBase10(vector<long long>& v);
 void RadixSortBase256(vector<long long>& v);
-void QuickSort(vector<long long>& v, int st, int dr);
+void QuickSortBFPRT(vector<long long>& v, int st, int dr);
+void QuickSortMedianOfThree(vector<long long>& v, int st, int dr);
 void MergeSort(vector<long long>& v, int st, int dr);
 
 
@@ -33,28 +34,26 @@ int main() {
 	in >> tests;
 	for (int k = 0; k < tests; k++) {
 		int n;
-		long long mn = 0, mx = 0;
-		in >> n;
+		long long mn, mx;
+		in >> n >> mn >> mx;
 		out << "TEST CASE " << k + 1 << '\n';
 
 		vector<long long> v, tmp, sorted;
 		for (int i = 0; i < n; i++) {
 			long long x;
 			in >> x;
-			if (i == 0) {
-				mn = x;
-				mx = x;
-			}
-			if (i == 0 || x < mn) mn = x;
-			if (i == 0 || x > mx) mx = x;
 			v.push_back(x);
 			tmp.push_back(x);
 			sorted.push_back(x);
 		}
-		out << "Size: 10^" << NrOfDigits(n) - 1 << '\n';
-		if(mn < 0) out << "Min: -10^" << NrOfDigits(mn) << '\n';
-		else out << "Min: 10^" << NrOfDigits(mn) << '\n';
-		out << "Max: 10^" << NrOfDigits(mx) << '\n';
+		out << "SIZE: 10^" << NrOfDigits(n) - 1 << '\n';
+		if (mn < 0) out << "MIN: -10^" << NrOfDigits(mn) - 1 << '\n';
+		else if (mn > 0) out << "MIN: 10^" << NrOfDigits(mn) - 1 << '\n';
+		else out << "MIN: 0\n";
+
+		if (mx > 0) out << "MAX: 10^" << NrOfDigits(mx) - 1 << '\n';
+		else if (mx < 0) out << "MAX: -10^" << NrOfDigits(mx) - 1 << '\n';
+		else out << "MAX: 0\n";
 
 		//STL Sort
 		auto start = high_resolution_clock::now();
@@ -86,13 +85,21 @@ int main() {
 		fp_ms = stop - start;
 		out << "Merge Sort: " << fp_ms.count() / 1000 << "s " << (CheckSort(tmp, sorted) ? "OK\n" : "NOT OK\n");
 
-		//Quick Sort
+		//Quick Sort BFPRT
 		for (int i = 0; i < n; i++) tmp[i] = v[i];
 		start = high_resolution_clock::now();
-		QuickSort(tmp, 0, tmp.size() - 1);
+		QuickSortBFPRT(tmp, 0, tmp.size() - 1);
 		stop = high_resolution_clock::now();
 		fp_ms = stop - start;
-		out << "Quick Sort: " << fp_ms.count() / 1000 << "s " << (CheckSort(tmp, sorted) ? "OK\n" : "NOT OK\n");
+		out << "Quick Sort BFPRT: " << fp_ms.count() / 1000 << "s " << (CheckSort(tmp, sorted) ? "OK\n" : "NOT OK\n");
+
+		//Quick Sort Median Of Three
+		for (int i = 0; i < n; i++) tmp[i] = v[i];
+		start = high_resolution_clock::now();
+		QuickSortMedianOfThree(tmp, 0, tmp.size() - 1);
+		stop = high_resolution_clock::now();
+		fp_ms = stop - start;
+		out << "Quick Sort MedianOfThree: " << fp_ms.count() / 1000 << "s " << (CheckSort(tmp, sorted) ? "OK\n" : "NOT OK\n");
 
 		//Radix Sort Base 10
 		for (int i = 0; i < n; i++) tmp[i] = v[i];
@@ -159,6 +166,15 @@ long long BFPRT(vector<long long>& v, int st, int dr) {
 	}
 	return BFPRT(mediane, 0, mediane.size() - 1);
 }
+int MedianOfThree(vector<long long>& v, int st, int dr) {
+	int a = v[st], b = v[(st + dr) / 2], c = v[dr];
+	if ((a > b) != (a > c))
+		return st;
+	else if ((b > a) != (b > c))
+		return (st+dr)/2;
+	else
+		return dr;
+}
 int Partition(vector<long long>& v, int st, int dr) {
 	int i = st - 1;
 	for (int j = st; j < dr; j++) {
@@ -190,7 +206,7 @@ void Merge(vector<long long>& v, int st, int dr) {
 }
 
 void InsertionSort(vector<long long>& v) {
-	if (v.size() > 5000) {
+	if (v.size() > 10000) {
 		return;
 	}
 	for (int i = 1; i < v.size(); i++) {
@@ -204,7 +220,7 @@ void InsertionSort(vector<long long>& v) {
 	}
 }
 void BubbleSort(vector<long long>& v) {
-	if (v.size() > 5000 || v.size() < 1) {
+	if (v.size() > 10000 || v.size() < 1) {
 		return;
 	}
 	bool ok = 0;
@@ -240,7 +256,7 @@ void RadixSortBase10(vector<long long>& v) {
 
 	vector<long long> liste[10];
 
-	long long pow10 = 1;
+	unsigned long long pow10 = 1;
 	for (int k = 0; k < pasi; k++) {
 		for (int i = 0; i < n; i++) {
 			int cif_curr = (v[i] % (pow10 * 10)) / pow10;
@@ -309,15 +325,24 @@ void RadixSortBase256(vector<long long>& v) {
 		for (int i = 0; i < n; i++) v[i] += mn;
 	}
 }
-void QuickSort(vector<long long>& v, int st, int dr) {
+void QuickSortBFPRT(vector<long long>& v, int st, int dr) {
 	if (st < dr) {
 		int pivot = st;
 		long long pivot_val = BFPRT(v, st, dr);
 		while (v[pivot] != pivot_val) pivot++;
 		swap(v[pivot], v[dr]);
 		pivot = Partition(v, st, dr);
-		QuickSort(v, st, pivot - 1);
-		QuickSort(v, pivot + 1, dr);
+		QuickSortBFPRT(v, st, pivot - 1);
+		QuickSortBFPRT(v, pivot + 1, dr);
+	}
+}
+void QuickSortMedianOfThree(vector<long long>& v, int st, int dr) {
+	if (st < dr) {
+		int pivot = MedianOfThree(v, st, dr);
+		swap(v[pivot], v[dr]);
+		pivot = Partition(v, st, dr);
+		QuickSortMedianOfThree(v, st, pivot - 1);
+		QuickSortMedianOfThree(v, pivot + 1, dr);
 	}
 }
 void MergeSort(vector<long long>& v, int st, int dr) {

@@ -1,0 +1,181 @@
+TEST CASE 1
+SIZE: 10^3
+MIN: 0
+MAX: 10^9
+STL Sort: 0.0044251s
+Insertion Sort: 0.0474861s OK
+Bubble Sort: 0.293723s OK
+Merge Sort: 0.0312693s OK
+Quick Sort BFPRT: 0.0377971s OK
+Quick Sort MedianOfThree: 0.0043751s OK
+Radix Sort(base 10): 0.010285s OK
+Radix Sort(base 256): 0.0131979s OK
+
+TEST CASE 2
+SIZE: 10^4
+MIN: 0
+MAX: 10^9
+STL Sort: 0.0254204s
+Insertion Sort: 3.42499s OK
+Bubble Sort: 19.3625s OK
+Merge Sort: 0.300262s OK
+Quick Sort BFPRT: 0.248104s OK
+Quick Sort MedianOfThree: 0.0305839s OK
+Radix Sort(base 10): 0.0676647s OK
+Radix Sort(base 256): 0.0486768s OK
+
+TEST CASE 3
+SIZE: 10^6
+MIN: 0
+MAX: 10^9
+STL Sort: 3.72178s
+Insertion Sort: 5e-07s NOT OK
+Bubble Sort: 1e-06s NOT OK
+Merge Sort: 18.2893s OK
+Quick Sort BFPRT: 21.7179s OK
+Quick Sort MedianOfThree: 3.54412s OK
+Radix Sort(base 10): 4.85128s OK
+Radix Sort(base 256): 4.46494s OK
+
+TEST CASE 4
+SIZE: 10^6
+MIN: 0
+MAX: 10^9
+STL Sort: 3.52827s
+Insertion Sort: 6e-07s NOT OK
+Bubble Sort: 1.2e-06s NOT OK
+Merge Sort: 19.2089s OK
+Quick Sort BFPRT: 21.1156s OK
+Quick Sort MedianOfThree: 3.74595s OK
+Radix Sort(base 10): 5.07903s OK
+Radix Sort(base 256): 4.48865s OK
+
+TEST CASE 5
+SIZE: 10^6
+MIN: 0
+MAX: 10^18
+STL Sort: 3.41825s
+Insertion Sort: 6e-07s NOT OK
+Bubble Sort: 1.2e-06s NOT OK
+Merge Sort: 18.0329s OK
+Quick Sort BFPRT: 19.624s OK
+Quick Sort MedianOfThree: 4.58998s OK
+Radix Sort(base 10): 9.95459s OK
+Radix Sort(base 256): 4.05089s OK
+
+TEST CASE 6
+SIZE: 10^6
+MIN: 0
+MAX: 10^18
+STL Sort: 4.03641s
+Insertion Sort: 8e-07s NOT OK
+Bubble Sort: 1.1e-06s NOT OK
+Merge Sort: 19.7028s OK
+Quick Sort BFPRT: 20.8413s OK
+Quick Sort MedianOfThree: 4.35926s OK
+Radix Sort(base 10): 10.6134s OK
+Radix Sort(base 256): 4.12666s OK
+
+TEST CASE 7
+SIZE: 10^6
+MIN: -10^9
+MAX: 10^9
+STL Sort: 3.29211s
+Insertion Sort: 6e-07s NOT OK
+Bubble Sort: 1.1e-06s NOT OK
+Merge Sort: 17.5172s OK
+Quick Sort BFPRT: 19.7731s OK
+Quick Sort MedianOfThree: 3.59609s OK
+Radix Sort(base 10): 5.658s OK
+Radix Sort(base 256): 4.2815s OK
+
+TEST CASE 8
+SIZE: 10^6
+MIN: -10^9
+MAX: 10^9
+STL Sort: 3.59546s
+Insertion Sort: 5e-07s NOT OK
+Bubble Sort: 1e-06s NOT OK
+Merge Sort: 19.0075s OK
+Quick Sort BFPRT: 20.4545s OK
+Quick Sort MedianOfThree: 4.42772s OK
+Radix Sort(base 10): 5.88578s OK
+Radix Sort(base 256): 4.52722s OK
+
+TEST CASE 9
+SIZE: 10^6
+MIN: -10^18
+MAX: 10^18
+STL Sort: 3.97701s
+Insertion Sort: 5e-07s NOT OK
+Bubble Sort: 1.4e-06s NOT OK
+Merge Sort: 18.9599s OK
+Quick Sort BFPRT: 19.3353s OK
+Quick Sort MedianOfThree: 4.32464s OK
+Radix Sort(base 10): 10.5542s OK
+Radix Sort(base 256): 5.18631s OK
+
+TEST CASE 10
+SIZE: 10^6
+MIN: -10^18
+MAX: 10^18
+STL Sort: 3.50979s
+Insertion Sort: 5e-07s NOT OK
+Bubble Sort: 8e-07s NOT OK
+Merge Sort: 18.999s OK
+Quick Sort BFPRT: 23.3433s OK
+Quick Sort MedianOfThree: 4.8455s OK
+Radix Sort(base 10): 14.5542s OK
+Radix Sort(base 256): 4.94503s OK
+
+TEST CASE 11
+SIZE: 10^7
+MIN: 0
+MAX: 10^9
+STL Sort: 44.6983s
+Insertion Sort: 6e-07s NOT OK
+Bubble Sort: 1.5e-06s NOT OK
+Merge Sort: 219.908s OK
+Quick Sort BFPRT: 275.477s OK
+Quick Sort MedianOfThree: 63.9114s OK
+Radix Sort(base 10): 67.4587s OK
+Radix Sort(base 256): 62.7594s OK
+
+TEST CASE 12
+SIZE: 10^7
+MIN: -10^9
+MAX: 10^9
+STL Sort: 43.9113s
+Insertion Sort: 6e-07s NOT OK
+Bubble Sort: 1.4e-06s NOT OK
+Merge Sort: 203.386s OK
+Quick Sort BFPRT: 213.142s OK
+Quick Sort MedianOfThree: 43.0317s OK
+Radix Sort(base 10): 57.6632s OK
+Radix Sort(base 256): 54.6596s OK
+
+TEST CASE 13
+SIZE: 10^7
+MIN: 0
+MAX: 10^18
+STL Sort: 59.6018s
+Insertion Sort: 1.6e-06s NOT OK
+Bubble Sort: 2.6e-06s NOT OK
+Merge Sort: 307.868s OK
+Quick Sort BFPRT: 296.077s OK
+Quick Sort MedianOfThree: 61.3553s OK
+Radix Sort(base 10): 126.618s OK
+Radix Sort(base 256): 47.2243s OK
+
+TEST CASE 14
+SIZE: 10^7
+MIN: -10^18
+MAX: 10^18
+STL Sort: 59.4779s
+Insertion Sort: 6e-07s NOT OK
+Bubble Sort: 1.2e-06s NOT OK
+Merge Sort: 275.194s OK
+Quick Sort BFPRT: 326.559s OK
+Quick Sort MedianOfThree: 71.4414s OK
+Radix Sort(base 10): 144.861s OK
+Radix Sort(base 256): 59.2674s OK
