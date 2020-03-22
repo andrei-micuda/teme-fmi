@@ -4,10 +4,10 @@
 
 ```
 nr_teste
-size_test(1)
+size_test(1) min_test(1) max_test(1)
 n(1) n(2) ... n(size_test(1))
 ...
-size_test(nr_teste)
+size_test(nr_teste) min_test(nr_teste) max_test(nr_teste)
 n(1) n(2) ... n(size_test(nr_teste))
 ```
 output-ul fiind afisat in fisierul `sortari.out`.
