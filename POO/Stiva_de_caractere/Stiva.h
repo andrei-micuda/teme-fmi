@@ -26,10 +26,10 @@ public:
 	char pop();
 	void top();
 	bool isempty();
-	char* reverse(const char* str);
 	Stiva_de_caractere operator-(Stiva_de_caractere& s1);
 	friend ostream& operator<<(ostream& os, Stiva_de_caractere& st);
 	friend istream& operator>>(istream& is, Stiva_de_caractere& st);
 };
 
 string reverse(const string& str);
+void Citire_n_obiecte(int n);

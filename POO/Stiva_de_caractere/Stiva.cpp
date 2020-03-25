@@ -48,20 +48,6 @@ bool Stiva_de_caractere::isempty() {
 	return false;
 }
 
-char* Stiva_de_caractere::reverse(const char* str) {
-	int len = 0;
-	while (str[len]) {
-		push(str[len]);
-		len++;
-	}
-	char* str_rev = new char[len + 1];
-	for (int i = 0; i < len; i++) {
-		str_rev[i] = pop();
-	}
-	str_rev[len] = '\0';
-	return str_rev;
-}
-
 Stiva_de_caractere Stiva_de_caractere::operator-(Stiva_de_caractere& s1) {
 	Stiva_de_caractere* res_s = new Stiva_de_caractere;
 	while (!isempty() && !s1.isempty()) {
@@ -100,4 +86,20 @@ string reverse(const string& str) {
 		str_rev.push_back(stiva.pop());
 	}
 	return str_rev;
+}
+
+void Citire_n_obiecte(int n) {
+	vector<Stiva_de_caractere*> v;
+	for (int i = 0; i < n; i++) {
+		int nr_elem;
+		cout << "Nr. elemente stiva " << i+1 << ": ";
+		cin >> nr_elem;
+		Stiva_de_caractere* st = new Stiva_de_caractere;
+		for (int j = 0; j < nr_elem; j++) cin >> (*st);
+		v.push_back(st);
+	}
+	for (int i = 0; i < n; i++) {
+		cout << "Stiva " << i + 1 << ": ";
+		cout << (*v[i]) << '\n';
+	}
 }
