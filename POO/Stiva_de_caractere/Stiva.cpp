@@ -102,4 +102,6 @@ void Citire_n_obiecte(int n) {
 		cout << "Stiva " << i + 1 << ": ";
 		cout << (*v[i]) << '\n';
 	}
+	
+	for (int i = 0; i < n; i++) delete v[i];
 }
