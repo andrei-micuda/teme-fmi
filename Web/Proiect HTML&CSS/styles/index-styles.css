@@ -1,0 +1,118 @@
+/*// MAIN CONTENT //*/
+.about{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+}
+.about .wrapper{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 75%;
+}
+.about .wrapper > h2{
+  margin-bottom: 15px;
+}
+.about img{
+  flex-basis: 25%;
+  border-radius: 50%;
+  max-width: 250px;
+  min-width: 150px;
+  -webkit-box-shadow: 0px 1px 15px 0px #ccc;
+  -moz-box-shadow: 0px 1px 15px 0px #ccc;
+  box-shadow: 0px 1px 15px 0px #ccc;
+}
+/*// GALLERY //*/
+.gallery{
+  margin: 0 auto;
+  padding: 80px 0;
+  position: relative;
+  width: 70%;
+}
+.gallery img{
+  width: 100%;
+  height: 500px;
+  border: 1px solid var(--gray1);
+  box-sizing: border-box;
+  object-fit: cover;
+  display: none;
+}
+.fade{
+  animation: fade 1.5s;
+}
+.arrow{
+  background: rgba(0, 0, 0, 75%);
+  z-index: 1;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: var(--gray0);
+  font-size: 1.3rem;
+  position: absolute;
+  top: calc(50% - 20px);
+  cursor: pointer;
+}
+.arrow::selection{
+  background: none;
+}
+.left{
+  left: 0;
+  border-radius: 0 10px 10px 0;
+}
+.right{
+  right: 0;
+  border-radius: 10px 0 0 10px;
+}
+.dots{
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+}
+.dots div{
+  display: inline-block;
+  box-sizing: border-box;
+  border: 3px solid var(--main-accent-color);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 0 2px;
+  cursor: pointer;
+}
+.dots .active{
+  /* background: lightgray; */
+  background: var(--main-hover-color);
+}
+@keyframes fade{
+  0%{opacity: 0%}
+  100%{opacity: 100%}
+}
+
+/*// MEDIA QUERIES //*/
+@media only screen and (max-width: 1100px){
+  .gallery{
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 650px){
+  .gallery img{
+    width: 100%;
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 450px){
+  .about{
+    flex-direction: column;
+  }
+  .about img{
+    margin-top: 20px;
+    min-width: 50px;
+    width: 170px;
+  }
+  .gallery{
+    padding: 40px 0;
+  }
+  .gallery img{
+    height: 350px;
+  }
+}

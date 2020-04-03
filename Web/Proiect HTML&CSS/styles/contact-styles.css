@@ -1,0 +1,153 @@
+main{
+  display: flex;
+  align-items: center;
+}
+main > h2{
+  display: none;
+}
+.date-contact{
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80vh;
+}
+.date-contact div{
+  flex-basis: 48%;
+}
+.map{
+  align-self: stretch;
+  transform: translateZ(0px);
+  border: 1px solid var(--gray1);
+}
+.map iframe{
+  width: 100%;
+  height: 100%;
+}
+.date-contact ul{
+  list-style: none;
+  padding-bottom: 20px;
+}
+.date-contact li{
+  display: flex;
+  align-items: center;
+}
+.date-contact ul li svg{
+  transform: scale(0.8);
+  padding-right: 5px;
+  fill: var(--gray2);
+}
+.date-contact ul li br{
+  display: none;
+}
+/*// FORM //*/
+form{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+form div{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+form div input{
+  flex-basis: 47%;
+}
+textarea{
+  height: 40vh;
+  resize: none;
+  overflow: auto;
+}
+/* placeholder styling */
+textarea::placeholder, input::placeholder{
+  font-family: var(--my-fonts);
+  font-size: 1rem;
+}
+input, textarea{
+  font-family: var(--my-fonts);
+  margin-bottom: 5px;
+  padding: 6px;
+  border: 1px solid var(--gray1);
+  box-sizing: border-box;
+  border-radius: 3px;
+  transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out; 
+}
+input:not([type="submit"]):focus, textarea:focus{
+  border: 1px solid var(--main-hover-color);
+  box-shadow: 1px 1px 10px var(--main-accent-color);
+}
+input[type="submit"]{
+  margin: 0;
+  cursor: pointer;
+}
+input[type="submit"]:hover{
+  border: 1px solid var(--main-hover-color);
+  box-shadow: 1px 1px 10px var(--main-accent-color);
+}
+
+/*// MEDIA QUERIES //*/
+@media only screen and (max-width: 1100px){
+  main{
+    display: block;
+  }
+  main > h2{
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .date-contact{
+    flex-direction: column;
+  }
+  .date-contact div{
+    flex-basis: auto;
+  }
+  .map{
+    margin: 40px 0;
+    align-self: auto;
+    width: 90%;
+    height: 500px;
+  }
+  .date-contact-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 40px;
+  }
+  .date-contact-text h2{
+    display: none;
+  }
+  .date-contact-text h3, .date-contact-text form{
+    width: 85%;
+  }
+  .date-contact ul{
+    margin-bottom: 40px;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 780px){
+  .date-contact-text{
+    width: 100%;
+  }
+  form div{
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 450px){
+  .date-contact-text h3, .date-contact-text form, .map{
+    width: 100%;
+  }
+  .date-contact ul li{
+    margin-bottom: 15px;
+  }
+  .date-contact ul li br{
+    display: inline;
+  }
+  .date-contact ul li svg{
+    align-self: flex-start;
+    position: relative;
+    top: -3px;
+  }
+}
