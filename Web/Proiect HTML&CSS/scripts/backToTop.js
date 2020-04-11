@@ -12,5 +12,5 @@ window.onscroll = () => {
   else if(verticalScroll < 75 && backToTop.classList.contains("shiftUp")){
     backToTop.classList.remove("shiftUp");
     backToTop.classList.add("shiftDown");
-  } 
+  }
 }
