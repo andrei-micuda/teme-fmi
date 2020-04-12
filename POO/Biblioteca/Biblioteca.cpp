@@ -5,10 +5,6 @@ Info::Info(int id, std::string nume): id(id), nume(nume) {}
 
 void Info::print(std::ostream& out) { out << (*this); }
 
-bool Info::contains(std::string val) {
-	return (::contains(std::to_string(this->id), val) || ::contains(this->nume, val));
-}
-
 std::ostream& operator<<(std::ostream& out, Info& ob) {
 	out << "ID: " << ob.id << '\n';
 	out << "Nume: " << ob.nume << '\n';
@@ -21,7 +17,7 @@ Text::Text(int id, std::string text, std::string nume) : text(text), Info(id, nu
 void Text::print(std::ostream& out) { out << (*this); }
 
 bool Text::contains(std::string val) {
-	return (Info::contains(val) || ::contains(this->text, val));
+	return (::contains(this->text, val));
 }
 
 void Text::modifyData(std::string val) {
@@ -40,7 +36,7 @@ Numeric::Numeric(int id, int n, std::string nume) : number(n), Info(id, nume) {}
 void Numeric::print(std::ostream& out) { out << (*this); }
 
 bool Numeric::contains(std::string val) {
-	return (Info::contains(val) || ::contains(std::to_string(this->number), val));
+	return (::contains(std::to_string(this->number), val));
 }
 
 void Numeric::modifyData(std::string val) {
@@ -60,7 +56,7 @@ Matematic::Matematic(int id, int re, int im, std::string nume) : re(re), im(im),
 void Matematic::print(std::ostream& out) { out << (*this); }
 
 bool Matematic::contains(std::string val) {
-	return (Info::contains(val) || ::contains(std::to_string(this->re), val) || ::contains(std::to_string(this->im), val));
+	return (::contains(std::to_string(this->re), val) || ::contains(std::to_string(this->im), val));
 }
 
 void Matematic::modifyData(std::string val) {
@@ -83,8 +79,7 @@ Adresa::Adresa(int id, std::string tara, std::string judet, std::string oras, st
 void Adresa::print(std::ostream& out) { out << (*this); }
 
 bool Adresa::contains(std::string val) {
-	return (Info::contains(val) ||
-		::contains(this->tara, val) ||
+	return (::contains(this->tara, val) ||
 		::contains(this->judet, val) ||
 		::contains(this->oras, val) ||
 		::contains(this->strada, val) ||

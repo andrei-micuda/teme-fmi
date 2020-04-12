@@ -12,7 +12,7 @@ protected:
 
 	friend std::ostream& operator<<(std::ostream&, Info& ob);
 	virtual void print(std::ostream & = std::cout);
-	virtual bool contains(std::string);
+	virtual bool contains(std::string) = 0;
 	virtual void modifyData(std::string) = 0;
 
 	friend class Biblioteca;
