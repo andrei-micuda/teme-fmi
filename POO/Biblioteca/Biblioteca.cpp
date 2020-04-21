@@ -411,6 +411,7 @@ void Biblioteca::regasesteDupaID(int id, std::ostream& out) {
 }
 
 void Biblioteca::cauta(std::string val, std::ostream& out) {
+	out << "Rezultate pentru \"" + val + "\":\n";
 	bool found = false;
 	for (unsigned int i = 0; i < this->date.size(); ++i) {
 		if (this->date[i]->contains(val)) {
