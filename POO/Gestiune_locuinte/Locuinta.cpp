@@ -28,6 +28,7 @@ std::ostream& Locuinta::afiseaza(std::ostream& out) const
 
 std::istream& operator>>(std::istream& in, Locuinta& ob) {
 	std::cout << "Nume client: ";
+	std::cin.get();
 	getline(in, ob.numeClient);
 	std::cout << "Suprafata: "; in >> ob.suprafata;
 	std::cout << "Discount(0-10%): "; in >> ob.discount;
