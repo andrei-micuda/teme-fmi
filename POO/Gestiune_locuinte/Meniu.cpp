@@ -24,14 +24,26 @@ int main() {
 		if (op == 1) {
 			std::cout << "1. Adauga apartament\n\n";
 			Apartament* ap = new Apartament();
-			std::cin >> (*ap);
+			try {
+				std::cin >> (*ap);
+			}
+			catch (std::exception& e) {
+				std::cout << e.what();
+			}
+			
 			evidentaApartamente += (*ap);
 			evidentaTotala.insert(std::make_pair(ap, ap->what()));
 		}
 		else if (op == 2) {
 			std::cout << "2. Adauga casa\n\n";
 			Casa* c = new Casa();
-			std::cin >> (*c);
+			try {
+				std::cin >> (*c);
+			}
+			catch (std::exception& e) {
+				std::cout << e.what();
+			}
+			
 			evidentaCase += (*c);
 			evidentaTotala.insert(std::make_pair(c, c->what()));
 		}
