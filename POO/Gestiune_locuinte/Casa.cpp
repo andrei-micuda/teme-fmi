@@ -11,6 +11,12 @@ Casa::Casa(double suprafata, double pretMetru, double suprafataCurte, double pre
 	}
 }
 
+Casa::Casa(const Casa& other) : Locuinta(other) {
+	for (int i = 0; i < this->nrEtaje; ++i) {
+		this->suprafataEtaj.push_back(suprafataEtaj[i]);
+	}
+}
+
 Casa& Casa::operator=(Casa& other)
 {
 	this->Locuinta::operator=(other);

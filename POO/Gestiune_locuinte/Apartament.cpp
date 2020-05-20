@@ -2,6 +2,10 @@
 
 Apartament::Apartament(double suprafata, double pretMetru, int etaj, std::string numeClient, double discount, int index): Locuinta(index, suprafata, pretMetru, numeClient, discount), etaj(etaj) {}
 
+Apartament::Apartament(const Apartament& other):Locuinta(other) {
+	this->etaj = other.etaj;
+}
+
 Apartament& Apartament::operator=(Apartament& other)
 {
 	this->Locuinta::operator=(other);

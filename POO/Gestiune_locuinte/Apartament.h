@@ -4,6 +4,7 @@ class Apartament : public Locuinta {
 	int etaj;
 public:
 	Apartament(double=0, double=0, int=0, std::string = "", double = 0, int = -1);
+	Apartament(const Apartament& other);
 	~Apartament() { std::cout << "~A\n"; }
 
 	Apartament& operator= (Apartament&);

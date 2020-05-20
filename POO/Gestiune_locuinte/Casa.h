@@ -9,6 +9,7 @@ class Casa: public Locuinta {
 	std::vector<double> suprafataEtaj;
 public:
 	Casa(double=0, double=0, double=0, double=0, int=0, const double* = NULL, std::string = "", double = 0, int = -1);
+	Casa(const Casa& other);
 	~Casa() { std::cout << "~C\n"; }
 
 	Casa& operator=(Casa&);

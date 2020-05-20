@@ -4,6 +4,14 @@ Locuinta::Locuinta(int index, double suprafata, double pretMetru, std::string nu
 	if (discount < 0 || discount > 10) throw(MyException("Discount-ul trebuie sa fie inte 0-10%."));
 }
 
+Locuinta::Locuinta(const Locuinta& other) {
+	this->numeClient = other.numeClient;
+	this->suprafata = other.suprafata;
+	this->discount = other.discount;
+	this->pretMetru = other.pretMetru;
+	this->index = other.index;
+}
+
 Locuinta& Locuinta::operator=(Locuinta& other)
 {
 	this->numeClient = other.numeClient;

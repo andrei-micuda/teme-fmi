@@ -11,6 +11,7 @@ protected:
 	int index;
 
 	Locuinta(int, double, double, std::string = "" ,double = 0);
+	Locuinta(const Locuinta& other);
 
 	Locuinta& operator=(Locuinta&);
 
