@@ -1562,7 +1562,7 @@ void main()
 
 
 #63:
-include<iostream.h>
+#include<iostream.h>
 
     class cls {
 public:
@@ -1896,10 +1896,6 @@ int main()
     cout << dif(i, j);
     return 0;
 }
-
-
-#78:
-
 
 
 #79:
@@ -2347,10 +2343,6 @@ int main()
  cout << b.get_x();
  return 0;
 }
-
-
-#95:
-
 
 
 #96:
